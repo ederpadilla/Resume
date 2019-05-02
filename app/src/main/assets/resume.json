@@ -2,14 +2,14 @@
   "name": "Eder Padilla",
   "position": "Android Engineer",
   "skills": [
-    "Kotlin",
-    "Git",
-    "Swift",
-    "Java",
-    "Rx Java",
-    "Firebase",
-    "HTML",
-    "Retrofit"
+    {"name" : "Kotlin"},
+    {"name" : "Git"},
+    {"name" : "Swift"},
+    {"name" : "Java"},
+    {"name" : "Rx Java"},
+    {"name" : "Firebase"},
+    {"name" : "HTML"},
+    {"name" : "Retrofit"}
   ],
   "experience": [
     {

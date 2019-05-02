@@ -10,6 +10,8 @@ import com.bumptech.glide.request.RequestOptions
 import com.example.resumeederpadilla.R
 import com.example.resumeederpadilla.ui.main.view.base.BaseFragment
 import kotlinx.android.synthetic.main.fragment_main_info.*
+import com.example.resumeederpadilla.ui.main.view.activity.MainActivity
+
 
 class MainInfoFragment : BaseFragment() {
     companion object {
@@ -19,7 +21,6 @@ class MainInfoFragment : BaseFragment() {
         fun newInstance(): MainInfoFragment {
             return MainInfoFragment()
         }
-
     }
 
 
@@ -45,6 +46,14 @@ class MainInfoFragment : BaseFragment() {
         mLinkedInImage.setOnClickListener {
             linkedInClickListener()
         }
+        mShowResumeContainer.setOnClickListener {
+            showResumeClickListener()
+        }
+    }
+
+    private fun showResumeClickListener() {
+        val activity = activity as MainActivity
+        activity.switchToFragment(ResumeFragment.newInstance(),ResumeFragment.TAG,R.id.frameLayout)
     }
 
     private fun gitHubClickListener(){
