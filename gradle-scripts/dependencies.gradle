@@ -43,6 +43,9 @@ ext {
     //Lottie
     lottiePackage = 'com.airbnb.android'
 
+    //Circle Image View
+    circleImageViewPackage = 'com.mikhaellopez'
+
     /**
      *Versions
      **/
@@ -89,6 +92,10 @@ ext {
     //Lottie
     lottieVersion = '2.7.0'
 
+    //Circle ImageView
+    circleImageViewVersion = '3.2.0'
+
+
     architectureComponents = [
             lifecycle         :  buildDependency(lifeCycle, 'lifecycle-extensions', lifeCycleVersion),
             lifecycleCompiler :  buildDependency(lifeCycle, 'lifecycle-compiler', lifeCycleVersion)
@@ -131,7 +138,8 @@ ext {
     uiUtils = [
             glide : buildDependency(glidePackage, 'glide', glideVersion),
             glideAnnotationProcessor : buildDependency(glidePackage,'compiler',glideVersion),
-            lottie    : buildDependency(lottiePackage, 'lottie', lottieVersion)
+            lottie    : buildDependency(lottiePackage, 'lottie', lottieVersion),
+            circleImageView : buildDependency(circleImageViewPackage, 'circularimageview', circleImageViewVersion)
     ]
 
 }

@@ -46,7 +46,6 @@ class ResumeViewModel (private val model : ResumeModel) : ViewModel() {
                 this.experiences.postValue(resume.experience)
             }
             if (error!=null){
-                ShowLog.errorLog("ResumeViewModel","error $error")
                 this.error.postValue(error)
             }
         }

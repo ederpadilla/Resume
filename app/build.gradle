@@ -31,7 +31,6 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation 'com.mikhaellopez:circularimageview:3.2.0'
 //Architecture Components
     implementation architectureComponents.lifecycle
     kapt architectureComponents.lifecycleCompiler
@@ -63,4 +62,12 @@ dependencies {
 //Glide
     implementation uiUtils.glide
     annotationProcessor uiUtils.glideAnnotationProcessor
+
+//Circle Image View
+    implementation uiUtils.circleImageView
+
+    androidTestImplementation 'androidx.test.espresso:espresso-intents:3.1.1'
+    androidTestImplementation 'androidx.test:runner:1.1.1'
+    androidTestImplementation 'androidx.test:rules:1.1.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
 }

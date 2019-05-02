@@ -81,7 +81,7 @@ class ResumeFragment  : BaseFragment() {
 
     private fun setUpSkills(skills: List<SkillsItem>) {
         for (skill in skills){
-            mTvSkills.append("$skill \n")
+            mTvSkillsContainer.append("* ${skill.name} \n")
         }
     }
 

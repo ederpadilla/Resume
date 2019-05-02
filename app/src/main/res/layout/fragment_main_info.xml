@@ -23,7 +23,7 @@
 
     <TextView
             style="@style/TitleTextView"
-            android:id="@+id/textView"
+            android:id="@+id/textViewName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/eight"
@@ -47,7 +47,7 @@
             android:padding="@dimen/eight"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView"
+            app:layout_constraintTop_toBottomOf="@+id/textViewName"
             android:textSize="@dimen/big_size_tv"
             android:text="@string/position"
             />

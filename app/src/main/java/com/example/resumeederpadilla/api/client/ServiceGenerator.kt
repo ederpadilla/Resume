@@ -1,5 +1,6 @@
 package com.example.resumeederpadilla.api.client
 
+import com.example.resumeederpadilla.api.client.Endpoints.BASE_URL
 import com.google.gson.GsonBuilder
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -18,7 +19,7 @@ object ServiceGenerator {
 
 
     private val builder = Retrofit.Builder()
-        .baseUrl("https://raw.githubusercontent.com/ederpadillaglobant/")
+        .baseUrl(BASE_URL)
         .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
         .addConverterFactory(GsonConverterFactory.create(gson))
 
