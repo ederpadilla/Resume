@@ -1,0 +1,66 @@
+apply plugin: 'com.android.application'
+
+apply plugin: 'kotlin-android'
+
+apply plugin: 'kotlin-android-extensions'
+
+apply plugin: 'kotlin-kapt'
+
+android {
+    compileSdkVersion 28
+    defaultConfig {
+        applicationId "com.example.resumeederpadilla"
+        minSdkVersion 19
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+        vectorDrawables.useSupportLibrary = true
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'com.mikhaellopez:circularimageview:3.2.0'
+//Architecture Components
+    implementation architectureComponents.lifecycle
+    kapt architectureComponents.lifecycleCompiler
+//Android Support
+    implementation supportDependencies.appCompat
+    implementation supportDependencies.googleMaterial
+    implementation supportDependencies.constraint
+//Dagger
+    kapt supportDependencies.daggerAnnotation
+    implementation supportDependencies.dagger
+//Kotlin
+    implementation kotlinDependencies.kotlin
+    implementation kotlinDependencies.core
+//Test
+    implementation test.jUntit
+    implementation test.runner
+    implementation test.espresso
+//Retrofit
+    implementation retrofitDependencies.retrofit
+    implementation retrofitDependencies.gson
+    implementation retrofitDependencies.rxAdapterJava
+//Rx Java
+    implementation rxDependencies.rxAndroid
+    implementation rxDependencies.rxJava
+//OkHttp
+    implementation okHttpDependencies.okHttpLoggin
+//Lottie
+    implementation uiUtils.lottie
+//Glide
+    implementation uiUtils.glide
+    annotationProcessor uiUtils.glideAnnotationProcessor
+}
