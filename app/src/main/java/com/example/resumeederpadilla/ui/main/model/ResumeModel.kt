@@ -4,13 +4,13 @@ import com.example.resumeederpadilla.api.requests.callbacks.GetResumeCallbacks
 import com.example.resumeederpadilla.api.requests.petitions.GetResumePetitions
 import com.example.resumeederpadilla.model.GetResumeResponse
 
-class ResumeModel {
+class ResumeModel() {
 
-    var experience :  GetResumeResponse?= null
-    var error: String? = null
-    var showProgress : Boolean? = null
-    var hideProgress : Boolean? = null
-    var noInternet : Boolean? = null
+    private var experience :  GetResumeResponse?= null
+    private var error: String? = null
+    private var showProgress : Boolean? = null
+    private var hideProgress : Boolean? = null
+    private var noInternet : Boolean? = null
 
     fun getExperiences(callback: (GetResumeResponse?, String?,
                                   Boolean?, Boolean?, Boolean?) -> Unit) {
