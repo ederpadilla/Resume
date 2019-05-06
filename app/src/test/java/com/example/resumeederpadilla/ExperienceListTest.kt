@@ -2,6 +2,7 @@ package com.example.resumeederpadilla
 
 import androidx.annotation.NonNull
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
+import androidx.lifecycle.MutableLiveData
 import com.example.resumeederpadilla.model.ExperienceItem
 import com.example.resumeederpadilla.model.GetResumeResponse
 import com.example.resumeederpadilla.model.SkillsItem
@@ -21,63 +22,35 @@ import io.reactivex.Scheduler.Worker
 import io.reactivex.disposables.Disposable
 import io.reactivex.Scheduler
 import junit.framework.Assert.assertEquals
+import org.hamcrest.CoreMatchers.`is`
+import org.hamcrest.MatcherAssert.assertThat
 import org.junit.BeforeClass
 import java.util.concurrent.Executor
 import java.util.concurrent.TimeUnit
 import org.junit.ClassRule
+import org.junit.runner.RunWith
+import org.mockito.BDDMockito.given
 import org.mockito.Mock
+import org.mockito.Mockito.mock
 import org.mockito.MockitoAnnotations
+import org.mockito.junit.MockitoJUnitRunner
 
 
+@RunWith(MockitoJUnitRunner::class)
 class ExperienceListTest {
 
-
-
-    //@get:Rule
-    //@JvmField
-    //val rule = InstantTaskExecutorRule()
-
-    //private val viewModel by lazy { ResumeViewModel(ResumeModel()) }
-
-    ////@Before
-    //public fun setValues(){
-    //    RxAndroidPlugins.setInitMainThreadSchedulerHandler { scheduler -> Schedulers.trampoline() }
-
-    //    val skills = listOf<SkillsItem>(
-    //        SkillsItem("Test 1"),
-    //        SkillsItem("Test 2")
-    //    )
-    //    val experiences = listOf<ExperienceItem>(
-    //        ExperienceItem("des 1","place 1","between 1"),
-    //        ExperienceItem("des 2","place 2","between 2")
-    //    )
-    //    viewModel.resume.value = GetResumeResponse(skills,"Mother of tests",
-    //        "Tester",experiences)
-    //}
-
-
-    //@Test
-    //fun checkSize() {
-    //    // then
-    //    setValues()
-    //    //Assert.assertEquals("2", viewModel.experiences.value)
-    //}
-
-    lateinit var viewModel: ResumeViewModel
     @Mock
-    val model = ResumeModel()
-
-    @Before
-    fun init(){
-        MockitoAnnotations.initMocks(this)
-        viewModel = ResumeViewModel(model)
-        ShowLog.errorLog("Before","Before")
-    }
+    lateinit var resumeViewModel: ResumeViewModel
 
     @Test
     fun invalidName(){
-        viewModel.noInternet.value = false
-        assertEquals(false, viewModel.noInternet.value!!)
+        val mutableLiveData : MutableLiveData<Boolean>
+                = mock(MutableLiveData<Boolean>()::class.java)
+        mutableLiveData.value = false
+        Mockito.`when`(resumeViewModel.noInternet).thenReturn(mutableLiveData)
+        //Todo finish test
+        resumeViewModel.getResume()
+        assertEquals(false,resumeViewModel.noInternet)
     }
 
 }
