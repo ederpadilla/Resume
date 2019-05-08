@@ -24,12 +24,12 @@ object ServiceGenerator {
         .addConverterFactory(GsonConverterFactory.create(gson))
 
 
-    fun <S> createService(serviceClass: Class<S>): S {
+    private fun <S> createService(serviceClass: Class<S>): S {
         return createService(serviceClass, null)
     }
 
 
-    fun <S> createService(serviceClass: Class<S>, token: String?): S {
+    private fun <S> createService(serviceClass: Class<S>, token: String?): S {
         if (token != null) {
 
         }

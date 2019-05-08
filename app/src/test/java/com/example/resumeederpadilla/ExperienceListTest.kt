@@ -30,6 +30,7 @@ import java.util.concurrent.TimeUnit
 import org.junit.ClassRule
 import org.junit.runner.RunWith
 import org.mockito.BDDMockito.given
+import org.mockito.InjectMocks
 import org.mockito.Mock
 import org.mockito.Mockito.mock
 import org.mockito.MockitoAnnotations
@@ -39,18 +40,28 @@ import org.mockito.junit.MockitoJUnitRunner
 @RunWith(MockitoJUnitRunner::class)
 class ExperienceListTest {
 
+    @get:Rule
+    val rule = InstantTaskExecutorRule()
+
     @Mock
+    lateinit var resumeModel: ResumeModel
+
+    @InjectMocks
     lateinit var resumeViewModel: ResumeViewModel
 
     @Test
     fun invalidName(){
         val mutableLiveData : MutableLiveData<Boolean>
                 = mock(MutableLiveData<Boolean>()::class.java)
-        mutableLiveData.value = false
+        mutableLiveData.postValue(false)
         Mockito.`when`(resumeViewModel.noInternet).thenReturn(mutableLiveData)
         //Todo finish test
         resumeViewModel.getResume()
-        assertEquals(false,resumeViewModel.noInternet)
+        assertEquals(false,resumeViewModel.noInternet.value)
     }
 
+   @Test
+   fun `test mutable live data`(){
+       Mockito.verify(resumeViewModel,Mockito.times(1)).showTheProgressBar(true)
+   }
 }

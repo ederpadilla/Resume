@@ -24,11 +24,9 @@ class GetResumePetitions
 
     private fun successGetExperiences(response: Response<GetResumeResponse>) {
         if (response.code() == 200){
-            if (response.body()!=null){
                 response.body().apply {
                     this?.let { mGetResume.successGetResume(it) }
                 }
-            }
         }else{
             mGetResume.failedGetResume(response.message())
         }

@@ -28,25 +28,25 @@ class ResumeViewModel (private val model : ResumeModel) : ViewModel() {
         model.getExperiences{ resume: GetResumeResponse?,
                               error: String?, showProgress : Boolean?,
                               hideProgress : Boolean?, noInternet : Boolean?->
-            if (showProgress!=null){
-                if (showProgress)
-                this.showProgress.postValue(showProgress)
+            showProgress?.let {
+                if (it)
+                this.showProgress.postValue(it)
             }
-            if (hideProgress!=null){
-                if (hideProgress)
-                this.hideProgress.postValue(hideProgress)
+            hideProgress?.let {
+                if (it)
+                    this.hideProgress.postValue(it)
             }
-            if (noInternet!=null){
-                if (noInternet)
-                this.noInternet.postValue(noInternet)
+            noInternet?.let {
+                if (it)
+                    this.noInternet.postValue(it)
             }
-            if (resume!=null){
-                this.resume.postValue(resume)
-                this.skills.postValue(resume.skills)
-                this.experiences.postValue(resume.experience)
+            resume?.let {
+                this.resume.postValue(it)
+                this.skills.postValue(it.skills)
+                this.experiences.postValue(it.experience)
             }
-            if (error!=null){
-                this.error.postValue(error)
+            error?.let {
+                this.error.postValue(it)
             }
         }
     }

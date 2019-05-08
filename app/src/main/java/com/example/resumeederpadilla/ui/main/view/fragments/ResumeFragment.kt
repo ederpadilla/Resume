@@ -46,9 +46,7 @@ class ResumeFragment  : BaseFragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-
         setUpRecycler(mExperienceRecycler)
-        let {  }
         resumeViewModel = ViewModelProviders.of(this, resumeViewModelFactory)
             .get(ResumeViewModel::class.java)
         resumeViewModel.error.observe(this, Observer {
@@ -90,19 +88,16 @@ class ResumeFragment  : BaseFragment() {
         mTvPos.text = it?.position
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-    }
-
     private fun setUpRecycler(recyclerView : RecyclerView) {
-        recyclerView.layoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL,false)
+        recyclerView.layoutManager = LinearLayoutManager(context,
+            RecyclerView.VERTICAL,false)
         recyclerView.setHasFixedSize(true)
         recyclerView.adapter = mExperiencesAdapter
     }
 
     companion object {
 
-        val TAG = ResumeFragment::class.java.simpleName
+        val TAG: String = ResumeFragment::class.java.simpleName
 
         fun newInstance(): ResumeFragment {
             return ResumeFragment()

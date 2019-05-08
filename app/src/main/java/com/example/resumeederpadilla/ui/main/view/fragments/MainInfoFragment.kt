@@ -16,7 +16,7 @@ import com.example.resumeederpadilla.ui.main.view.activity.MainActivity
 class MainInfoFragment : BaseFragment() {
     companion object {
 
-        val TAG = MainInfoFragment::class.java.simpleName
+        val TAG: String = MainInfoFragment::class.java.simpleName
 
         fun newInstance(): MainInfoFragment {
             return MainInfoFragment()
@@ -28,10 +28,6 @@ class MainInfoFragment : BaseFragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_main_info, container, false)
-    }
-
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
